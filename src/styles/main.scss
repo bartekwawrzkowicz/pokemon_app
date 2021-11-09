@@ -19,16 +19,21 @@ body {
 .header {
   height: 30%;
   margin: 30px 0;
+
+  &__searchbar {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .navbar {
-  width: 600px;
+  width: 500px;
   padding: 20px 20px;
   margin: 10px 0 50px 0;
   border-radius: 10px;
 
   &__form-inline {
-    width: 560px;
+    width: 480px;
     font-size: 2rem;
   }
 }
@@ -49,4 +54,9 @@ body {
     list-style: none;
     text-decoration: none;
   }
+}
+
+.single-character {
+  text-transform: uppercase;
+  width: 480px;
 }
