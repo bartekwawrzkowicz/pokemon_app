@@ -7,16 +7,15 @@ import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import CharactersList from './components/CharactersList';
 
-const dynamicURL = 'https://pokeapi.co/api/v2/pokemon?limit=1118';
+const URL = 'https://pokeapi.co/api/v2/pokemon?limit=1118';
 
 function App() {
   const [charactersList, setCharactersList] = useState([]);
   const [search, setSearch] = useState('');
-  const [active, setActive] = useState(true);
 
   useEffect(() => {
     axios
-      .get(dynamicURL)
+      .get(URL)
       .then(res => {
         setCharactersList(res.data.results)
       })
@@ -25,27 +24,18 @@ function App() {
       })
   }, []);
 
-  console.log(charactersList)
-
-  const charactersListHandler = event => {
-    const name = event.target.innerHTML;
-    /* setActive(false); */
-  }
-
-
   return (
-    <div className="App">
-      <div className="header">
+    <div className="app">
+      <header className="header">
         <Header />
-      </div>
+        <div className="header__searchbar">
+          <SearchBar change={event => setSearch(event.target.value)} />
+        </div>
+      </header>
 
-      <div className="searchbar">
-        <SearchBar isActive={active} change={event => setSearch(event.target.value)} />
-      </div>
-
-      <div className="list" >
-        <CharactersList search={search} list={charactersList} click={charactersListHandler} />
-      </div>
+      <ul className="list" >
+        <CharactersList search={search} list={charactersList} />
+      </ul>
     </div>
   );
 }
