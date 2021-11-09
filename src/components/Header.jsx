@@ -1,9 +1,10 @@
 import pokemonLogo from '../images/logo.png';
+import '../styles/main.scss';
 
 const Header = () => {
     return (
-        <div>
-            <img src={pokemonLogo} className="header__logo" alt="pokemon-logo" />
+        <div className="header__logo">
+            <img src={pokemonLogo} alt="pokemon-logo" />
         </div>
     );
 }

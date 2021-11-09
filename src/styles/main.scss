@@ -20,7 +20,8 @@ body {
   height: 30%;
   margin: 30px 0;
 
-  &__searchbar {
+  &__searchbar,
+  &__logo {
     display: flex;
     justify-content: center;
   }
@@ -41,6 +42,8 @@ body {
 .list {
   max-height: 60%;
   font-size: 2rem;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .characters {
@@ -53,6 +56,11 @@ body {
     line-height: 1.65rem;
     list-style: none;
     text-decoration: none;
+  }
+
+  &__info {
+    flex: 1 0 25%;
+    padding: 5px;
   }
 }
 
