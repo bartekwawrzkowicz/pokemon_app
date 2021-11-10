@@ -1,14 +1,18 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import '../styles/main.scss';
+import loadingGif from '../images/unnamed.gif';
+
 import SingleCharacter from './SingleCharacter';
 
 const CharactersList = ({ list, search }) => {
     const [singleCharacterData, setSingleCharacterData] = useState('');
     const [singleCharacterURL, setSingleCharacterURL] = useState([]);
-    const [activeList, setActiveList] = useState(true)
+    const [activeList, setActiveList] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
-    const { name, base_experience, height, weight } = singleCharacterData;
+    const { name, base_experience, height, weight, sprites } = singleCharacterData;
 
     useEffect(() => {
         axios
@@ -17,20 +21,28 @@ const CharactersList = ({ list, search }) => {
             .catch(err => console.log(err))
     }, [singleCharacterURL]);
 
-    const getSingleCharacter = event => {
-        event.preventDefault()
-        const href = event.target.getAttribute('href')
-        setSingleCharacterURL(href)
-        setActiveList(false)
+    useEffect(() => {
+        if (singleCharacterData.name) {
+            setIsLoading(false)
+        }
+    }, [singleCharacterData.name]);
+
+    const getSingleCharacter = (event) => {
+        event.preventDefault();
+        const href = event.target.getAttribute('href');
+        setSingleCharacterURL(href);
+        setActiveList(false);
+        setIsLoading(true);
     }
 
     const backButtonHandler = () => {
-        setActiveList(true)
+        setActiveList(true);
+        setSingleCharacterData('');
     }
 
     return (
         activeList ?
-            list.filter(item => {
+            list.filter((item) => {
                 if (search === '') {
                     return item
                 } else if (item.name.toLowerCase().includes(search.toLowerCase())) {
@@ -42,10 +54,21 @@ const CharactersList = ({ list, search }) => {
                     <a href={el.url} className="characters__link" onClick={getSingleCharacter} >
                         {el.name}
                     </a>
-                </li>)
+                </li>
+            )
             :
-            <SingleCharacter name={name} height={height} experience={base_experience} weight={weight} active={activeList} click={backButtonHandler} />
+            (
+                <>
+                    {isLoading ? (
+                        <div>
+                            <img src={loadingGif} alt="loading" />
+                        </div>
+                    ) : (
+                            <SingleCharacter name={name} height={height} experience={base_experience} weight={weight} sprites={sprites} click={backButtonHandler} />
+                        )}
+                </>
+            )
     )
-
 }
+
 export default CharactersList;

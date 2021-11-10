@@ -1,29 +1,38 @@
-import { MDBCard, MDBCardHeader, MDBCardBody, MDBBtn, MDBCardText } from 'mdb-react-ui-kit';
+import { MDBCard, MDBCardHeader, MDBCardBody, MDBBtn, MDBCardText, MDBCardImage, MDBCol } from 'mdb-react-ui-kit';
 
-const SingleCharacter = ({ name, height, experience, weight, click }) => {
+const SingleCharacter = ({ name, experience, height, weight, sprites, click }) => {
 
     return (
         <div className="single-character">
-            <MDBCard alignment="center">
-                <MDBCardHeader>
-                    Pokemon {name} details:
-                </MDBCardHeader>
-                <MDBCardBody>
-                    <MDBCardText>
-                        base experience: {experience}
-                    </MDBCardText>
-                    <MDBCardText>
-                        height : {height}
-                    </MDBCardText>
-                    <MDBCardText>
-                        weight : {weight}
-                    </MDBCardText>
+            <MDBCol style={{ maxWidth: "30rem" }}>
+                <MDBCard alignment="center">
 
-                </MDBCardBody>
-                <MDBBtn onClick={click} style={{ width: 'auto' }} >BACK</MDBBtn>
-            </MDBCard>
+                    <MDBCardHeader>
+                        {name}
+                    </MDBCardHeader>
 
+                    <MDBCardBody>
+                        {sprites && sprites.front_default && (
+                            <MDBCardImage
+                                src={sprites.front_default}
+                                alt={name}
+                                cascade
+                            />
+                        )}
+                        <MDBCardText>
+                            base experience: {experience}
+                        </MDBCardText>
+                        <MDBCardText>
+                            height : {height}
+                        </MDBCardText>
+                        <MDBCardText>
+                            weight : {weight}
+                        </MDBCardText>
+                    </MDBCardBody>
 
+                    <MDBBtn onClick={click}>BACK</MDBBtn>
+                </MDBCard>
+            </MDBCol>
         </div>
     );
 }
