@@ -1,11 +1,11 @@
 import pokemonLogo from '../images/logo.png';
-import '../styles/main.scss';
+import { Container } from '../styles/Container.style';
 
 const Header = () => {
     return (
-        <div className="header__logo">
+        <Container >
             <img src={pokemonLogo} alt="pokemon-logo" />
-        </div>
+        </Container>
     );
 }
 

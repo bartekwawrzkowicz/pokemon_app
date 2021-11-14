@@ -1,12 +1,16 @@
-import '../styles/main.scss'
+import { Container } from '../styles/Container.style';
+import { Input } from '../styles/Input.style';
 
 const SearchBar = ({ change }) => {
     return (
-        <nav className="navbar navbar-light bg-dark">
-            <form className="navbar__form-inline" >
-                <input className="form-control mr-sm-2" type="search" placeholder="search pokemons..." aria-label="Search" onChange={change} />
-            </form>
-        </nav>
+        <Container>
+            <Input className="form-control"
+                type="search"
+                placeholder="search pokemons..."
+                aria-label="Search"
+                onChange={change}>
+            </Input>
+        </Container>
     );
 }
 
