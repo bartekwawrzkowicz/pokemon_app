@@ -19,3 +19,16 @@ export const Button = styled.button`
         transition: .5s;
     }
 `;
+
+export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 600px;
+`;
+
+export const Input = styled.input`
+    display: flex;
+    box-shadow: 1px 1px 1px 1px #0000ff;
+`;

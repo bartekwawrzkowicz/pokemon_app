@@ -1,5 +1,5 @@
 import pokemonLogo from '../images/logo.png';
-import { Container } from '../styles/Container.style';
+import { Container } from '../styles/layout';
 
 const Header = () => {
     return (

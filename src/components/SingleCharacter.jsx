@@ -1,6 +1,5 @@
 import { Card } from 'react-bootstrap';
-import { Container } from '../styles/Container.style';
-import { Button } from '../styles/Button.style';
+import { Button, Container } from '../styles/layout';
 
 const SingleCharacter = ({ name, experience, height, weight, sprites, click }) => {
 

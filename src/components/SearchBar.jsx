@@ -1,5 +1,4 @@
-import { Container } from '../styles/Container.style';
-import { Input } from '../styles/Input.style';
+import { Container, Input } from '../styles/layout';
 
 const SearchBar = ({ change }) => {
     return (
