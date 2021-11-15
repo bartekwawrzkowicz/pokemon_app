@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import '../styles/main.scss';
 import loadingGif from '../images/unnamed.gif';
 
 import SingleCharacter from './SingleCharacter';
+import { StyledContainer, StyledLink, StyledListItem } from '../styles/layout';
 
 const CharactersList = ({ list, search }) => {
     const [singleCharacterData, setSingleCharacterData] = useState('');
@@ -50,19 +50,17 @@ const CharactersList = ({ list, search }) => {
                 }
                 return null
             }).map((el, index) =>
-                <li key={index} className="characters__info"  >
-                    <a href={el.url} className="characters__link" onClick={getSingleCharacter} >
+                <StyledListItem key={index} >
+                    <StyledLink href={el.url} onClick={getSingleCharacter} >
                         {el.name}
-                    </a>
-                </li>
-            )
-            :
-            (
+                    </StyledLink>
+                </StyledListItem>
+            ) : (
                 <>
                     {isLoading ? (
-                        <div>
+                        <StyledContainer>
                             <img src={loadingGif} alt="loading" />
-                        </div>
+                        </StyledContainer>
                     ) : (
                             <SingleCharacter name={name} height={height} experience={base_experience} weight={weight} sprites={sprites} click={backButtonHandler} />
                         )}

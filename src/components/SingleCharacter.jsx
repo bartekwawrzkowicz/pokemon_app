@@ -1,13 +1,19 @@
 import { Card } from 'react-bootstrap';
-import { Button, Container } from '../styles/layout';
+import { StyledButton, StyledContainer } from '../styles/layout';
 
 const SingleCharacter = ({ name, experience, height, weight, sprites, click }) => {
 
     return (
-        <Container>
+        <StyledContainer>
             <Card>
 
-                <Card.Header style={{ display: "flex", justifyContent: "center", alignItems: "center", textTransform: "uppercase" }}>
+                <Card.Header
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        textTransform: "uppercase"
+                    }}>
                     {name}
                 </Card.Header>
 
@@ -30,10 +36,10 @@ const SingleCharacter = ({ name, experience, height, weight, sprites, click }) =
                     </Card.Text>
                 </Card.Body>
 
-                <Button onClick={click}>BACK</Button>
+                <StyledButton onClick={click}>BACK</StyledButton>
 
             </Card>
-        </Container>
+        </StyledContainer>
     );
 }
 

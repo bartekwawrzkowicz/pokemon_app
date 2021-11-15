@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
+export const StyledButton = styled.button`
     width: 8rem;
     height: 2.7rem;
     background-color: #0000e6;
@@ -20,7 +20,7 @@ export const Button = styled.button`
     }
 `;
 
-export const Container = styled.div`
+export const StyledContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,7 +28,36 @@ export const Container = styled.div`
     max-width: 600px;
 `;
 
-export const Input = styled.input`
+export const StyledInput = styled.input`
     display: flex;
     box-shadow: 1px 1px 1px 1px #0000ff;
+`;
+
+export const StyledLink = styled.a`
+    color: #f0f0f0;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1.65rem;
+    list-style: none;
+    text-decoration: none;
+`;
+
+export const StyledListItem = styled.li`
+  color: #f0f0f0;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1.65rem;
+  list-style: none;
+  text-decoration: none; 
+  flex: 1 0 25%;
+  padding: 5px;
+`;
+
+export const StyledList = styled.ul`
+  max-height: 60%;
+  font-size: 2rem;
+  display: flex;
+  flex-wrap: wrap;
 `;
